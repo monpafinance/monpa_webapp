@@ -84,6 +84,7 @@ export default function Benefits() {
                 md: "39.86px",
                 xs: "24px",
               },
+              color: "#000000",
             }}
           >
             Sell seamlessly on{" "}
@@ -197,6 +198,7 @@ export default function Benefits() {
                 md: "39.86px",
                 xs: "24px",
               },
+              color: "#000000",
             }}
           >
             Get more control, buy and pay online without fear or worries
