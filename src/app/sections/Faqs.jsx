@@ -66,6 +66,7 @@ export default function Faqs() {
             fontWeight: 600,
             fontSize: { xs: "16px", md: "24px" },
             marginY: "8px",
+            color: "black",
           }}
         >
           Frequently Asked Questions

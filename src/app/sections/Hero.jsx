@@ -1,7 +1,49 @@
+"use client";
+
 import { Box, Button, Typography } from "@mui/material";
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import { useEffect, useRef } from "react";
 import Marquee from "react-fast-marquee";
+import SplitType from "split-type";
 
 function Hero() {
+  const charTextRef = useRef(null);
+  const wordTextRef = useRef(null);
+
+  useEffect(() => {
+    // Split the character animation text into individual chars
+    const charSplit = new SplitType(charTextRef.current, { types: "chars" });
+
+    // Animate characters separately
+    gsap.from(charSplit.chars, {
+      opacity: 0,
+      y: 20, // Move up
+      stagger: 0.05, // Delay between each character
+      duration: 0.8,
+      ease: "power3.out",
+    });
+
+    // Split the word animation text into words
+    const wordSplit = new SplitType(wordTextRef.current, { types: "words" });
+
+    // Animate words separately
+    gsap.from(wordSplit.words, {
+      opacity: 0,
+      x: -10, // Slide words from left
+      stagger: 0.2, // Delay between each word
+      duration: 1,
+      ease: "power2.out",
+      delay: 0.5, // Start after chars animate
+    });
+
+    // Cleanup on unmount
+    return () => {
+      charSplit.revert();
+      wordSplit.revert();
+    };
+  }, []);
+
   const words = [
     "Reliable",
     "Trust",
@@ -43,6 +85,7 @@ function Hero() {
                 lineHeight: { xs: "36.96px", md: "63.36px" },
                 color: "#ffffff",
               }}
+              ref={charTextRef}
             >
               Make payments online without fear or worries
             </Box>
@@ -54,6 +97,7 @@ function Hero() {
                 marginTop: { xs: 1, md: 2 },
                 marginBottom: 3,
               }}
+              ref={wordTextRef}
             >
               Monpa aims to eliminate fraud, make every payment safe and build
               trust between buyers and sellers.
@@ -83,7 +127,7 @@ function Hero() {
               m: { xs: "auto", md: 0 },
             }}
           >
-            <img
+            <motion.img
               src="/heropic.png"
               alt="Hero Image"
               style={{
@@ -91,6 +135,15 @@ function Hero() {
                 maxWidth: "475px",
                 height: "auto",
                 objectFit: "contain",
+              }}
+              initial={{ opacity: 0, x: 50 }} // Start hidden and move from the right
+              animate={{ opacity: 1, x: 0 }} // Fade in and slide in
+              transition={{ duration: 1 }}
+              whileHover={{ scale: 1.05, rotate: 2 }} // Slight rotation and scale on hover
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "reverse",
               }}
             />
           </Box>

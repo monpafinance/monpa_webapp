@@ -1,6 +1,18 @@
+"use client";
+
 import { Box, Typography } from "@mui/material";
+import "animate.css/animate.min.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export default function AboutUs() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      once: true, // Ensures animation runs only once
+    });
+  }, []);
   return (
     <Box sx={{ backgroundColor: "#f6f9ff", py: 5 }}>
       <Box className="w-[90%] mx-auto">
@@ -57,7 +69,15 @@ export default function AboutUs() {
         {/* Second Container - Cards */}
         <Box className="grid grid-cols-1 md:grid-cols-2 gap-1 mt-1 md:mt-10">
           {/* Card 1 */}
-          <Box className=" p-6 ">
+
+          <div
+            className="p-6"
+            data-aos="fade-left"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos-anchor-placement="none"
+          >
             <Box
               component="img"
               src={"/image_fx_ (10) 1.png"}
@@ -85,10 +105,17 @@ export default function AboutUs() {
               Secure your payments with confidence, knowing your funds are
               protected until the transaction is complete.
             </Typography>
-          </Box>
+          </div>
 
           {/* Card 2 */}
-          <Box className=" p-6 ">
+          <div
+            className="p-6"
+            data-aos="fade-right"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos-anchor-placement="none"
+          >
             <Box
               component="img"
               src="/image 26.png"
@@ -116,7 +143,7 @@ export default function AboutUs() {
               Build credibility and trust with your customers through Monpa’s
               transparent processes.
             </Typography>
-          </Box>
+          </div>
         </Box>
       </Box>
     </Box>

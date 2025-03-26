@@ -13,10 +13,16 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.3",
     "@mui/material": "^6.4.3",
+    "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
+    "framer-motion": "^12.5.0",
+    "gsap": "^3.12.7",
     "next": "15.1.6",
     "react": "^19.0.0",
+    "react-animation-on-scroll": "^5.1.0",
     "react-dom": "^19.0.0",
-    "react-fast-marquee": "^1.6.5"
+    "react-fast-marquee": "^1.6.5",
+    "split-type": "^0.3.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

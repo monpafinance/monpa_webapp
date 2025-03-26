@@ -1,6 +1,18 @@
+"use client";
+
 import { Box, Typography } from "@mui/material";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export default function HowItWork() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      once: true, // Ensures animation runs only once
+    });
+  }, []);
+
   const steps = [
     {
       img: "/Layer_1.png",
@@ -31,6 +43,7 @@ export default function HowItWork() {
         <Typography
           variant="h4"
           sx={{
+            color: "black",
             fontWeight: 600,
             lineHeight: { xs: "24px", md: "44px" },
             fontSize: { xs: "20px", md: "32px" },
@@ -57,6 +70,11 @@ export default function HowItWork() {
 
       {/* Steps Section */}
       <Box
+        data-aos="fade-right"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="none"
         sx={{
           display: "flex",
           flexWrap: "wrap",
@@ -97,6 +115,11 @@ export default function HowItWork() {
 
       {/* Secure Solutions Section */}
       <Box
+        data-aos="fade-left"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="none"
         sx={{
           display: "grid",
           gridTemplateColumns: { xs: "1fr", md: "40% 60%" },
@@ -109,6 +132,7 @@ export default function HowItWork() {
             variant="h4"
             sx={{
               fontWeight: "bold",
+              color: "black",
               lineHeight: "44px",
               fontSize: { md: "32px", xs: "24px" },
               textAlign: "start",
@@ -145,6 +169,11 @@ export default function HowItWork() {
       >
         {["/crypto.png", "/freelancer.png"].map((img, index) => (
           <img
+            data-aos="flip-right"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos-anchor-placement="none"
             src={img}
             alt=""
             key={index}

@@ -1,7 +1,18 @@
+"use client";
+
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Box, Button, Typography } from "@mui/material";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export default function Benefits() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      once: true, // Ensures animation runs only once
+    });
+  }, []);
   return (
     <Box sx={{ backgroundColor: "#eef3ff", py: 10, px: { xs: 2, md: 8 } }}>
       {/* Header Section */}
@@ -44,7 +55,6 @@ export default function Benefits() {
           Enjoy payment protection and customer satisfaction, all on Monpa
         </Typography>
       </Box>
-
       {/* Benefits Container */}
       <Box
         sx={{
@@ -55,15 +65,28 @@ export default function Benefits() {
           alignItems: "center",
         }}
       >
-        <Box>
+        <Box
+          data-aos="zoom-in-right"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="false"
+          data-aos-anchor-placement="none"
+        >
           <img src="/Rectangle 105.png" alt="For Vendors" width="100%" />
         </Box>
 
         {/* Vendors Section */}
-        <Box>
+        <Box
+          data-aos="zoom-in-left"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="false"
+          data-aos-anchor-placement="none"
+        >
           <Typography
             sx={{
               backgroundColor: "#FFE4E3",
+              color: "black",
               px: { xs: "10.78px", md: "16px" },
               py: { xs: "6.74px", md: "10px" },
               width: { xs: "115px", md: "130px" },
@@ -173,7 +196,14 @@ export default function Benefits() {
         </Box>
 
         {/* Buyers Section */}
-        <Box sx={{ order: { xs: 4, md: 3 } }}>
+        <Box
+          data-aos="zoom-in-right"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="false"
+          data-aos-anchor-placement="none"
+          sx={{ order: { xs: 4, md: 3 } }}
+        >
           <Typography
             sx={{
               backgroundColor: "#E89829",
@@ -253,7 +283,14 @@ export default function Benefits() {
           </Button>
         </Box>
 
-        <Box sx={{ order: { xs: 3, md: 4 } }}>
+        <Box
+          data-aos="zoom-in-left"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="false"
+          data-aos-anchor-placement="none"
+          sx={{ order: { xs: 3, md: 4 } }}
+        >
           <img
             src="/pexels-shkrabaanthony-6207763 1.png"
             alt="For Buyers"
